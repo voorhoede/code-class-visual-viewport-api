@@ -7,7 +7,7 @@ Some user agents have split their viewport into two conceptual viewports, colloq
 This project is hosted as a Voorhoede Git repository. Clone it:
 
 ```bash
-$ git clone git@github.com:voorhoede/code-class-template.git
+$ git clone git@github.com:voorhoede/code-class-visual-viewport-api.git
 ```
 
 Install dependencies:
