@@ -167,8 +167,8 @@
             });
         }
 
-        visualViewport.addEventListener("scroll", update);
-        visualViewport.addEventListener("resize", update);
+        viewport.addEventListener("scroll", update);
+        viewport.addEventListener("resize", update);
         addEventListener("scroll", update);
 
         // =============================================== \\
@@ -176,27 +176,13 @@
         // =============================================== \\
 
         function updateDebugInformation() {
-            document
-                .getElementById('offsetLeft')
-                .innerHTML = visualViewport.offsetLeft;
-            document
-                .getElementById('offsetTop')
-                .innerHTML = visualViewport.offsetTop;
-            document
-                .getElementById('pageLeft')
-                .innerHTML = visualViewport.pageLeft;
-            document
-                .getElementById('pageTop')
-                .innerHTML = visualViewport.pageTop;
-            document
-                .getElementById('width')
-                .innerHTML = visualViewport.width;
-            document
-                .getElementById('height')
-                .innerHTML = visualViewport.height;
-            document
-                .getElementById('scale')
-                .innerHTML = visualViewport.scale;
+            document.getElementById('offsetLeft').innerHTML = viewport.offsetLeft;
+            document.getElementById('offsetTop').innerHTML = viewport.offsetTop;
+            document.getElementById('pageLeft').innerHTML = viewport.pageLeft;
+            document.getElementById('pageTop').innerHTML = viewport.pageTop;
+            document.getElementById('width').innerHTML = viewport.width;
+            document.getElementById('height').innerHTML = viewport.height;
+            document.getElementById('scale').innerHTML = viewport.scale;
         }
     </script>
 
