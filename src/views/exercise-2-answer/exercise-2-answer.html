@@ -1,0 +1,154 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+    <nav class="cc-navigation">
+        <a href="/exercise-2/" class="cc-back-link">&#8592; back to exercise</a>
+        <a href="/exercise-3/" class="cc-answer-link">Exercise 3 &#8594;</a>
+    </nav>
+{% endblock %}
+
+{% block introduction %}
+    <h1>Let's fix position fixed!</h1>
+    <p>Position fixed does not work as expected whenever a user uses pinch to zoom. Let's fix it!</p>
+{% endblock %}
+
+{% block html %}
+    <section class="cc-html-playground">
+        <div class="uiElement" id="uiElement">
+            <button>≡</button>
+        </div>
+
+        <ul class="debug">
+            <li>
+                <span>offsetLeft:</span>
+                <span id="offsetLeft">0</span>
+            </li>
+            <li>
+                <span>offsetTop:</span>
+                <span id="offsetTop">0</span>
+            </li>
+            <li>
+                <span>pageLeft:</span>
+                <span id="pageLeft">0</span>
+            </li>
+            <li>
+                <span>pageTop:</span>
+                <span id="pageTop">0</span>
+            </li>
+            <li>
+                <span>width:</span>
+                <span id="width">0</span>
+            </li>
+            <li>
+                <span>height:</span>
+                <span id="height">0</span>
+            </li>
+            <li>
+                <span>scale:</span>
+                <span id="scale">1</span>
+            </li>
+        </ul>
+    </section>
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        .uiElement {
+            position: fixed;
+            left: 1.5rem;
+            top: 1.5rem;
+        }
+
+        .uiElement button {
+            appearance: none;
+            background-color: #ffe400;
+            border-radius: 0;
+            border: 2px solid blue;
+            height: 2.25rem;
+            width: 2.25rem;
+        }
+
+        .debug {
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: monospace;
+            justify-content: center;
+            margin: 0 0 2rem;
+            padding: 8px;
+        }
+
+        .debug li {
+            color: white;
+            list-style: none;
+            margin-right: 1em;
+            text-align: center;
+        }
+
+        .cc-html-playground {
+            min-height: 100vh;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        const viewport = window.visualViewport;
+        const uiElement = document.getElementById('uiElement')
+
+        let pendingUpdate = false;
+
+        function update() {
+            // If we're already going to handle an update, return.
+            if (pendingUpdate) {
+                return;
+            }
+
+            pendingUpdate = true;
+
+            // Use requestAnimationFrame so the update happens before next render.
+            requestAnimationFrame(() => {
+                pendingUpdate = false;
+
+                updateDebugInformation();
+
+                const offsetLeft = viewport.offsetLeft;
+                const offsetTop = viewport.offsetTop;
+
+                uiElement.style.transform = `translate(${offsetLeft}px, ${offsetTop}px)`;
+            });
+        }
+
+        visualViewport.addEventListener("scroll", update);
+        visualViewport.addEventListener("resize", update);
+        addEventListener("scroll", update);
+
+        // =============================================== \\
+        // [IGNORE]: Not important for this demo/exercise. \\
+        // =============================================== \\
+
+        function updateDebugInformation() {
+            document
+                .getElementById('offsetLeft')
+                .innerHTML = visualViewport.offsetLeft;
+            document
+                .getElementById('offsetTop')
+                .innerHTML = visualViewport.offsetTop;
+            document
+                .getElementById('pageLeft')
+                .innerHTML = visualViewport.pageLeft;
+            document
+                .getElementById('pageTop')
+                .innerHTML = visualViewport.pageTop;
+            document
+                .getElementById('width')
+                .innerHTML = visualViewport.width;
+            document
+                .getElementById('height')
+                .innerHTML = visualViewport.height;
+            document
+                .getElementById('scale')
+                .innerHTML = visualViewport.scale;
+        }
+    </script>
+{% endblock %}

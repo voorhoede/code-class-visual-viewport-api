@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Code Class - Visual Viewport API</title>
+        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <link rel="stylesheet" href="/index.css">
+        <meta name="theme-color" content="#ffe400">
+        
+    <style type="text/css">
+        .cc-html-playground p {
+            font-size: 50%;
+        }
+
+        .annoyingAdd {
+            align-items: center;
+            background-color: #ffe400;
+            border: 10px solid blue;
+            color: blue;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Comic Sans MS';
+            justify-content: center;
+            left: 50%;
+            margin-left: -40%;
+            padding: 3rem;
+            position: fixed;
+            text-align: center;
+            top: 50%;
+            width: 80%;
+        }
+
+        .annoyingAdd h2 {
+            font-size: 2rem;
+            margin: 0 0 1rem;
+        }
+
+        .annoyingAdd p {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header class="cc-header">
+            <a href="/">
+                <svg class="cc-logo" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 154.67 153.96">
+                    <path fill="#0000ff" d="M.9 21.54c-3.5 20.26 3.4 48.96 19.5 77 16.16 28 37.6 48.3 56.9 55.43V0C45 0 16.7 8.4.9 21.54z"/>
+                    <path fill="#EDDD3E" d="M134.22 98.53c16.16-28 23.05-56.72 19.56-76.98C137.98 8.4 109.7 0 77.3 0v153.96c19.32-7.16 40.8-27.46 56.9-55.43z"/>
+                    <path fill="#FFFFFF" d="M115.57 25.24c-4.52-1.3-9.33-2.33-14.33-3.13-.06 2.2-.17 4.4-.33 6.7-.3 5.1-.9 10.4-1.6 15.6 3.3 1 6.2 2.3 8.5 3.7.1 3.2-.4 6.9-1.4 10.8-1.5 6.2-4.2 12.8-7.9 19-3.6 6.3-7.9 12-12.5 16.4-2.9 2.8-5.8 5.1-8.6 6.6-2.7-1.5-5.7-3.8-8.6-6.6-4.5-4.4-8.9-10-12.5-16.3-3.6-6.3-6.3-12.8-7.9-19-1-3.9-1.4-7.6-1.4-10.8 2.4-1.4 5.3-2.6 8.6-3.7C54.9 39.3 54.3 34 54 29c-.15-2.4-.26-4.6-.32-6.72-5 .8-9.8 1.84-14.3 3.13-7.3 2.1-13.7 4.8-18.8 7.8-.1 6 .8 12.8 2.7 20.2 2.86 11.5 8 23.8 14.8 35.6 6.8 11.8 14.9 22.4 23.4 30.6 5.44 5.3 10.9 9.5 16.1 12.4 5.2-2.9 10.66-7.1 16.13-12.4 8.5-8.2 16.6-18.8 23.4-30.6 6.8-11.8 12-24.1 14.8-35.6 1.9-7.4 2.8-14.2 2.7-20.2-5-3-11.4-5.7-18.7-7.7z"/>
+                    <path fill="#EAEAEA" d="M77.33 100.83c-2.78-1.56-5.7-3.8-8.62-6.62-4.5-4.4-8.8-10-12.5-16.3-3.6-6.3-6.3-12.8-7.9-19-1-3.9-1.4-7.6-1.4-10.8 2.4-1.4 5.3-2.6 8.6-3.7-.7-5.2-1.3-10.5-1.6-15.5l-.3-6.7c-5 .8-9.8 1.9-14.3 3.2-7.3 2.1-13.7 4.8-18.8 7.8-.1 6 .8 12.8 2.7 20.2 2.9 11.5 8 23.8 14.8 35.6 6.8 11.8 14.9 22.4 23.4 30.7 5.5 5.3 10.9 9.5 16.1 12.4v-31z"/>
+                </svg>
+            </a>
+            <h1 class="cc-title">Code Class</h1>
+            <span class="cc-subtitle">Visual Viewport API</span>
+        </header>
+
+        
+    <nav class="cc-navigation">
+        <a href="/" class="cc-back-link">&#8592; back to overview</a>
+        <a href="/exercise-1-answer/" class="cc-answer-link">See answer &#8594;</a>
+    </nav>
+
+
+        <main class="cc-content">
+            <section class="cc-content-section">
+                
+    <h1>Annoying Advertisement</h1>
+    <p>This demo showcases how to hide elements whenever the user uses pinch-zoom.</p>
+
+            </section>
+
+            <section class="cc-content-section">
+                
+            </section>
+
+            <section class="cc-content-section">
+                <div class="cc-content-presentation">
+                    
+                </div>
+            </section>
+
+            <section class="cc-content-section">
+                <div class="cc-content-stream">
+                    
+                </div>
+            </section>
+        </main>
+
+        
+    <section class="cc-html-playground">
+
+        <div id="annoyingAdd" class="annoyingAdd">
+            <h2>Annoying Advertisement</h2>
+            <p>How to Enlarge your Creativity naturally (+12 inches)?</p>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet placerat augue, in auctor tortor. Phasellus a diam pharetra, semper dui in, cursus mi. Pellentesque vestibulum, lectus ac facilisis semper, mi enim scelerisque nisi, at laoreet tortor turpis at nisi. Donec ac mi est. Sed tempor purus in dictum vestibulum. Fusce commodo lorem ac accumsan sagittis. Nulla luctus ullamcorper quam, quis convallis eros tincidunt ultricies. Nunc congue quam et neque pretium bibendum. Proin faucibus dui quis magna aliquet, eget pellentesque sapien facilisis. Vivamus turpis lectus, lobortis vel ante non, convallis eleifend ipsum. Ut facilisis semper magna, vel semper erat mattis et. Cras orci orci, rutrum malesuada nunc ut, congue dignissim sem. Sed eleifend iaculis ligula in lobortis. Vivamus euismod semper metus vitae dapibus. In aliquet sit amet purus a lacinia. Maecenas sagittis libero maximus lacus efficitur congue.
+        </p>
+        <p>Aenean dapibus metus vel turpis hendrerit porta sit amet id libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse luctus arcu finibus, bibendum est nec, porttitor elit. Etiam vulputate risus lorem, eget viverra massa facilisis ut. Vestibulum iaculis, ipsum id bibendum pharetra, dui odio pellentesque est, ut ultricies magna mauris id velit. Integer imperdiet leo tristique lectus faucibus, quis pellentesque dolor pulvinar. Praesent tincidunt urna in nisl facilisis laoreet. Proin elementum lorem nec orci varius viverra. Duis consectetur in diam nec malesuada. Nullam pellentesque convallis justo a facilisis. Nullam nulla lorem, egestas ut tortor at, maximus cursus nulla. Aenean hendrerit rutrum nulla, vitae finibus nisl aliquam eget. Sed rhoncus sit amet ex in finibus. Ut rutrum ligula a mollis molestie. Etiam commodo sed dui sed finibus. Ut ut enim vel arcu auctor sagittis id quis ex.
+        </p>
+        <p>Pellentesque lobortis ex felis, at maximus massa mollis non. Praesent facilisis tellus vitae diam consequat, in suscipit est congue. Suspendisse eu nisl convallis, maximus orci nec, varius quam. Cras in quam non lectus aliquet ornare. Nam sollicitudin, neque eu lobortis tincidunt, ante sapien aliquet nibh, non ultricies libero enim in tellus. Curabitur vel aliquam quam. Pellentesque posuere volutpat magna ac congue. Nunc quis metus sed felis ullamcorper tempor at sed neque. Aliquam vehicula scelerisque elementum.
+        </p>
+        <p>In in justo arcu. Donec commodo vel sapien sit amet vehicula. Vestibulum fringilla, purus eget bibendum efficitur, tellus eros interdum erat, a dignissim dui dui vitae ante. Pellentesque lacinia justo sit amet purus consequat dictum. Quisque consectetur porttitor tellus, ac euismod dolor sollicitudin consectetur. In suscipit quam justo. Ut commodo felis at mauris rhoncus pharetra.
+        </p>
+        <p>Integer hendrerit arcu vel elit efficitur sodales ac id nunc. Cras gravida lobortis tellus, sit amet faucibus dolor ullamcorper at. Donec ultrices ullamcorper mauris eu faucibus. Sed varius volutpat sapien quis fringilla. Pellentesque id condimentum felis, eget varius urna. Sed eget rhoncus metus. Morbi a sodales lorem. Cras pulvinar laoreet tortor. Duis tortor leo, scelerisque vel commodo quis, lobortis ut nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet placerat augue, in auctor tortor. Phasellus a diam pharetra, semper dui in, cursus mi. Pellentesque vestibulum, lectus ac facilisis semper, mi enim scelerisque nisi, at laoreet tortor turpis at nisi. Donec ac mi est. Sed tempor purus in dictum vestibulum. Fusce commodo lorem ac accumsan sagittis. Nulla luctus ullamcorper quam, quis convallis eros tincidunt ultricies. Nunc congue quam et neque pretium bibendum. Proin faucibus dui quis magna aliquet, eget pellentesque sapien facilisis. Vivamus turpis lectus, lobortis vel ante non, convallis eleifend ipsum. Ut facilisis semper magna, vel semper erat mattis et. Cras orci orci, rutrum malesuada nunc ut, congue dignissim sem. Sed eleifend iaculis ligula in lobortis. Vivamus euismod semper metus vitae dapibus. In aliquet sit amet purus a lacinia. Maecenas sagittis libero maximus lacus efficitur congue.
+        </p>
+        <p>Aenean dapibus metus vel turpis hendrerit porta sit amet id libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse luctus arcu finibus, bibendum est nec, porttitor elit. Etiam vulputate risus lorem, eget viverra massa facilisis ut. Vestibulum iaculis, ipsum id bibendum pharetra, dui odio pellentesque est, ut ultricies magna mauris id velit. Integer imperdiet leo tristique lectus faucibus, quis pellentesque dolor pulvinar. Praesent tincidunt urna in nisl facilisis laoreet. Proin elementum lorem nec orci varius viverra. Duis consectetur in diam nec malesuada. Nullam pellentesque convallis justo a facilisis. Nullam nulla lorem, egestas ut tortor at, maximus cursus nulla. Aenean hendrerit rutrum nulla, vitae finibus nisl aliquam eget. Sed rhoncus sit amet ex in finibus. Ut rutrum ligula a mollis molestie. Etiam commodo sed dui sed finibus. Ut ut enim vel arcu auctor sagittis id quis ex.
+        </p>
+        <p>Pellentesque lobortis ex felis, at maximus massa mollis non. Praesent facilisis tellus vitae diam consequat, in suscipit est congue. Suspendisse eu nisl convallis, maximus orci nec, varius quam. Cras in quam non lectus aliquet ornare. Nam sollicitudin, neque eu lobortis tincidunt, ante sapien aliquet nibh, non ultricies libero enim in tellus. Curabitur vel aliquam quam. Pellentesque posuere volutpat magna ac congue. Nunc quis metus sed felis ullamcorper tempor at sed neque. Aliquam vehicula scelerisque elementum.
+        </p>
+        <p>In in justo arcu. Donec commodo vel sapien sit amet vehicula. Vestibulum fringilla, purus eget bibendum efficitur, tellus eros interdum erat, a dignissim dui dui vitae ante. Pellentesque lacinia justo sit amet purus consequat dictum. Quisque consectetur porttitor tellus, ac euismod dolor sollicitudin consectetur. In suscipit quam justo. Ut commodo felis at mauris rhoncus pharetra.
+        </p>
+        <p>Integer hendrerit arcu vel elit efficitur sodales ac id nunc. Cras gravida lobortis tellus, sit amet faucibus dolor ullamcorper at. Donec ultrices ullamcorper mauris eu faucibus. Sed varius volutpat sapien quis fringilla. Pellentesque id condimentum felis, eget varius urna. Sed eget rhoncus metus. Morbi a sodales lorem. Cras pulvinar laoreet tortor. Duis tortor leo, scelerisque vel commodo quis, lobortis ut nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet placerat augue, in auctor tortor. Phasellus a diam pharetra, semper dui in, cursus mi. Pellentesque vestibulum, lectus ac facilisis semper, mi enim scelerisque nisi, at laoreet tortor turpis at nisi. Donec ac mi est. Sed tempor purus in dictum vestibulum. Fusce commodo lorem ac accumsan sagittis. Nulla luctus ullamcorper quam, quis convallis eros tincidunt ultricies. Nunc congue quam et neque pretium bibendum. Proin faucibus dui quis magna aliquet, eget pellentesque sapien facilisis. Vivamus turpis lectus, lobortis vel ante non, convallis eleifend ipsum. Ut facilisis semper magna, vel semper erat mattis et. Cras orci orci, rutrum malesuada nunc ut, congue dignissim sem. Sed eleifend iaculis ligula in lobortis. Vivamus euismod semper metus vitae dapibus. In aliquet sit amet purus a lacinia. Maecenas sagittis libero maximus lacus efficitur congue.
+        </p>
+        <p>Aenean dapibus metus vel turpis hendrerit porta sit amet id libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse luctus arcu finibus, bibendum est nec, porttitor elit. Etiam vulputate risus lorem, eget viverra massa facilisis ut. Vestibulum iaculis, ipsum id bibendum pharetra, dui odio pellentesque est, ut ultricies magna mauris id velit. Integer imperdiet leo tristique lectus faucibus, quis pellentesque dolor pulvinar. Praesent tincidunt urna in nisl facilisis laoreet. Proin elementum lorem nec orci varius viverra. Duis consectetur in diam nec malesuada. Nullam pellentesque convallis justo a facilisis. Nullam nulla lorem, egestas ut tortor at, maximus cursus nulla. Aenean hendrerit rutrum nulla, vitae finibus nisl aliquam eget. Sed rhoncus sit amet ex in finibus. Ut rutrum ligula a mollis molestie. Etiam commodo sed dui sed finibus. Ut ut enim vel arcu auctor sagittis id quis ex.
+        </p>
+        <p>Pellentesque lobortis ex felis, at maximus massa mollis non. Praesent facilisis tellus vitae diam consequat, in suscipit est congue. Suspendisse eu nisl convallis, maximus orci nec, varius quam. Cras in quam non lectus aliquet ornare. Nam sollicitudin, neque eu lobortis tincidunt, ante sapien aliquet nibh, non ultricies libero enim in tellus. Curabitur vel aliquam quam. Pellentesque posuere volutpat magna ac congue. Nunc quis metus sed felis ullamcorper tempor at sed neque. Aliquam vehicula scelerisque elementum.
+        </p>
+        <p>In in justo arcu. Donec commodo vel sapien sit amet vehicula. Vestibulum fringilla, purus eget bibendum efficitur, tellus eros interdum erat, a dignissim dui dui vitae ante. Pellentesque lacinia justo sit amet purus consequat dictum. Quisque consectetur porttitor tellus, ac euismod dolor sollicitudin consectetur. In suscipit quam justo. Ut commodo felis at mauris rhoncus pharetra.
+        </p>
+        <p>Integer hendrerit arcu vel elit efficitur sodales ac id nunc. Cras gravida lobortis tellus, sit amet faucibus dolor ullamcorper at. Donec ultrices ullamcorper mauris eu faucibus. Sed varius volutpat sapien quis fringilla. Pellentesque id condimentum felis, eget varius urna. Sed eget rhoncus metus. Morbi a sodales lorem. Cras pulvinar laoreet tortor. Duis tortor leo, scelerisque vel commodo quis, lobortis ut nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        </p>
+    </section>
+
+
+        <script type="text/javascript" src="/index.js"></script>
+
+        
+    <script type="text/javascript">
+        const annoyingAdd = document.getElementById("annoyingAdd");
+        const viewport = window.visualViewport;
+
+        let pendingUpdate = false;
+
+        function update() {
+            // If we're already going to handle an update, return.
+            if (pendingUpdate) {
+                return;
+            }
+
+            pendingUpdate = true;
+
+            // Use requestAnimationFrame so the update happens before next render.
+            requestAnimationFrame(() => {
+                pendingUpdate = false;
+
+                // ===================================================================== \\
+                // [TODO]: Hide the 'Annoying Advertisement' whenever the user zooms in. \\
+                // ===================================================================== \\
+
+                if (false) {
+                    // Zoomed in? Hide it.
+                } else {
+                    // Else: Show it.
+                }
+            });
+        }
+
+        // ================================================================================= \\
+        // [TODO]: Call the 'update' function whenever the user resizes the Visual Viewport. \\
+        // ================================================================================= \\
+    </script>
+
+
+    </body>
+</html>

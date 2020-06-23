@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Code Class - Visual Viewport API</title>
+        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <link rel="stylesheet" href="/index.css">
+        <meta name="theme-color" content="#ffe400">
+        
+    <style type="text/css">
+        .keyboardExtension {
+            background-color: rgb(242, 242, 247);
+            border-top: 1px solid rgb(174, 174, 178);
+            border-width: 0.5px;
+            bottom: 0;
+            display: none;
+            height: 40px;
+            justify-content: space-evenly;
+            left: 0;
+            position: fixed;
+            transform-origin: left bottom;
+            transform: translate(0, 0) scale(1);
+            width: 100%;
+        }
+
+        .keyboardExtension button {
+            background-color: transparent;
+            border: none;
+            border-left: 1px solid rgb(174, 174, 178);
+            border-radius: 0;
+            border-width: 0.5px;
+            font-size: 1rem;
+            height: 100%;
+            width: 25%;
+        }
+
+        .keyboardExtension button:last-of-type {
+            border-right: 1px solid rgb(174, 174, 178);
+            border-width: 0.5px;
+        }
+
+        .textarea {
+            border-radius: 0;
+            border: 1px solid blue;
+            font-size: 1rem;
+            padding: 8px;
+            resize: none;
+            width: 100%;
+        }
+
+        .layoutViewport {
+            height: 100%;
+            position: fixed;
+            visibility: hidden;
+            width: 100%;
+        }
+
+        .debug {
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: monospace;
+            justify-content: center;
+            margin: 0 0 2rem;
+            padding: 8px;
+        }
+
+        .debug li {
+            color: white;
+            list-style: none;
+            margin-right: 1em;
+            text-align: center;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <header class="cc-header">
+            <a href="/">
+                <svg class="cc-logo" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 154.67 153.96">
+                    <path fill="#0000ff" d="M.9 21.54c-3.5 20.26 3.4 48.96 19.5 77 16.16 28 37.6 48.3 56.9 55.43V0C45 0 16.7 8.4.9 21.54z"/>
+                    <path fill="#EDDD3E" d="M134.22 98.53c16.16-28 23.05-56.72 19.56-76.98C137.98 8.4 109.7 0 77.3 0v153.96c19.32-7.16 40.8-27.46 56.9-55.43z"/>
+                    <path fill="#FFFFFF" d="M115.57 25.24c-4.52-1.3-9.33-2.33-14.33-3.13-.06 2.2-.17 4.4-.33 6.7-.3 5.1-.9 10.4-1.6 15.6 3.3 1 6.2 2.3 8.5 3.7.1 3.2-.4 6.9-1.4 10.8-1.5 6.2-4.2 12.8-7.9 19-3.6 6.3-7.9 12-12.5 16.4-2.9 2.8-5.8 5.1-8.6 6.6-2.7-1.5-5.7-3.8-8.6-6.6-4.5-4.4-8.9-10-12.5-16.3-3.6-6.3-6.3-12.8-7.9-19-1-3.9-1.4-7.6-1.4-10.8 2.4-1.4 5.3-2.6 8.6-3.7C54.9 39.3 54.3 34 54 29c-.15-2.4-.26-4.6-.32-6.72-5 .8-9.8 1.84-14.3 3.13-7.3 2.1-13.7 4.8-18.8 7.8-.1 6 .8 12.8 2.7 20.2 2.86 11.5 8 23.8 14.8 35.6 6.8 11.8 14.9 22.4 23.4 30.6 5.44 5.3 10.9 9.5 16.1 12.4 5.2-2.9 10.66-7.1 16.13-12.4 8.5-8.2 16.6-18.8 23.4-30.6 6.8-11.8 12-24.1 14.8-35.6 1.9-7.4 2.8-14.2 2.7-20.2-5-3-11.4-5.7-18.7-7.7z"/>
+                    <path fill="#EAEAEA" d="M77.33 100.83c-2.78-1.56-5.7-3.8-8.62-6.62-4.5-4.4-8.8-10-12.5-16.3-3.6-6.3-6.3-12.8-7.9-19-1-3.9-1.4-7.6-1.4-10.8 2.4-1.4 5.3-2.6 8.6-3.7-.7-5.2-1.3-10.5-1.6-15.5l-.3-6.7c-5 .8-9.8 1.9-14.3 3.2-7.3 2.1-13.7 4.8-18.8 7.8-.1 6 .8 12.8 2.7 20.2 2.9 11.5 8 23.8 14.8 35.6 6.8 11.8 14.9 22.4 23.4 30.7 5.5 5.3 10.9 9.5 16.1 12.4v-31z"/>
+                </svg>
+            </a>
+            <h1 class="cc-title">Code Class</h1>
+            <span class="cc-subtitle">Visual Viewport API</span>
+        </header>
+
+        
+    <nav class="cc-navigation">
+        <a href="/" class="cc-back-link">&#8592; back to overview</a>
+        <a href="/exercise-3-answer/" class="cc-answer-link">See answer &#8594;</a>
+    </nav>
+
+
+        <main class="cc-content">
+            <section class="cc-content-section">
+                
+    <h1>Emoji Keyboard</h1>
+    <p>This demo showcases an Emoji Keyboard extension, which the user cannot get rid of.</p>
+
+            </section>
+
+            <section class="cc-content-section">
+                
+            </section>
+
+            <section class="cc-content-section">
+                <div class="cc-content-presentation">
+                    
+                </div>
+            </section>
+
+            <section class="cc-content-section">
+                <div class="cc-content-stream">
+                    
+                </div>
+            </section>
+        </main>
+
+        
+    <section class="cc-html-playground">
+        <div id="layoutViewport" class="layoutViewport"></div>
+        <div id="keyboardExtension" class="keyboardExtension">
+            <button>😀</button>
+            <button>🙂</button>
+            <button>😐</button>
+            <button>😕</button>
+            <button>😠</button>
+        </div>
+
+        <ul class="debug">
+            <li>
+                <span>offsetLeft:</span>
+                <span id="offsetLeft">0</span>
+            </li>
+            <li>
+                <span>offsetTop:</span>
+                <span id="offsetTop">0</span>
+            </li>
+            <li>
+                <span>pageLeft:</span>
+                <span id="pageLeft">0</span>
+            </li>
+            <li>
+                <span>pageTop:</span>
+                <span id="pageTop">0</span>
+            </li>
+            <li>
+                <span>width:</span>
+                <span id="width">0</span>
+            </li>
+            <li>
+                <span>height:</span>
+                <span id="height">0</span>
+            </li>
+            <li>
+                <span>scale:</span>
+                <span id="scale">1</span>
+            </li>
+        </ul>
+
+        <textarea id="textarea" class="textarea" placeholder="Add a title. Hang in there!" rows="5"></textarea>
+    </section>
+
+
+        <script type="text/javascript" src="/index.js"></script>
+
+        
+    <script type="text/javascript">
+        const layoutViewport = document.getElementById("layoutViewport");
+        const keyboardExtension = document.getElementById("keyboardExtension");
+        const textarea = document.getElementById("textarea");
+        const viewport = window.visualViewport;
+
+        let pendingUpdate = false;
+
+        function update() {
+            // If we're already going to handle an update, return.
+            if (pendingUpdate) {
+                return;
+            }
+
+            pendingUpdate = true;
+
+            // Use requestAnimationFrame so the update happens before next render.
+            requestAnimationFrame(() => {
+                pendingUpdate = false;
+
+                updateDebugInformation();
+
+                // ============================================================= \\
+                // [TODO]: Set or Calculate the three offset values.             \\
+                // ============================================================= \\
+
+                const offsetLeft = 0; // = Offset.
+                const offsetTop = 0; // = The difference between the Visual Height and the Layout Height (vh - lh) plus the Offset.
+                const offsetScale = 1; // = Initial Scale / New Scale.
+
+                keyboardExtension.style.transform = `translate(${offsetLeft}px, ${offsetTop}px) scale(${offsetScale})`;
+            });
+        }
+
+        textarea.addEventListener("focus", () => (keyboardExtension.style.display = "flex"));
+        textarea.addEventListener("blur", () => (keyboardExtension.style.display = "none"));
+        visualViewport.addEventListener("scroll", update);
+        visualViewport.addEventListener("resize", update);
+        addEventListener("scroll", update);
+
+        // =============================================== \\
+        // [IGNORE]: Not important for this demo/exercise. \\
+        // =============================================== \\
+
+        function appendEmoji(e) {
+            e.preventDefault(); // Prevent keyboard from closing.
+            textarea.value = textarea.value + e.target.innerText;
+        }
+
+        function updateDebugInformation() {
+            document
+                .getElementById('offsetLeft')
+                .innerHTML = visualViewport.offsetLeft;
+            document
+                .getElementById('offsetTop')
+                .innerHTML = visualViewport.offsetTop;
+            document
+                .getElementById('pageLeft')
+                .innerHTML = visualViewport.pageLeft;
+            document
+                .getElementById('pageTop')
+                .innerHTML = visualViewport.pageTop;
+            document
+                .getElementById('width')
+                .innerHTML = visualViewport.width;
+            document
+                .getElementById('height')
+                .innerHTML = visualViewport.height;
+            document
+                .getElementById('scale')
+                .innerHTML = visualViewport.scale;
+        }
+
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => button.addEventListener("touchend", appendEmoji));
+    </script>
+
+
+    </body>
+</html>

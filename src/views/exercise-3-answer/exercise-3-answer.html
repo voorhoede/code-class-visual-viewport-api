@@ -1,0 +1,202 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+    <nav class="cc-navigation">
+        <a href="/exercise-3/" class="cc-back-link">&#8592; back to exercise</a>
+        <a href="/" class="cc-answer-link">Back to overview &#8594;</a>
+    </nav>
+{% endblock %}
+
+{% block introduction %}
+    <h1>Emoji Keyboard</h1>
+    <p>This demo showcases an Emoji Keyboard extension, which the user cannot get rid of.</p>
+{% endblock %}
+
+{% block html %}
+    <section class="cc-html-playground">
+        <div id="layoutViewport" class="layoutViewport"></div>
+        <div id="keyboardExtension" class="keyboardExtension">
+            <button>😀</button>
+            <button>🙂</button>
+            <button>😐</button>
+            <button>😕</button>
+            <button>😠</button>
+        </div>
+
+        <ul class="debug">
+            <li>
+                <span>offsetLeft:</span>
+                <span id="offsetLeft">0</span>
+            </li>
+            <li>
+                <span>offsetTop:</span>
+                <span id="offsetTop">0</span>
+            </li>
+            <li>
+                <span>pageLeft:</span>
+                <span id="pageLeft">0</span>
+            </li>
+            <li>
+                <span>pageTop:</span>
+                <span id="pageTop">0</span>
+            </li>
+            <li>
+                <span>width:</span>
+                <span id="width">0</span>
+            </li>
+            <li>
+                <span>height:</span>
+                <span id="height">0</span>
+            </li>
+            <li>
+                <span>scale:</span>
+                <span id="scale">1</span>
+            </li>
+        </ul>
+
+        <textarea id="textarea" class="textarea" placeholder="Add a title. Hang in there!" rows="5"></textarea>
+    </section>
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        .keyboardExtension {
+            background-color: rgb(242, 242, 247);
+            border-top: 1px solid rgb(174, 174, 178);
+            border-width: 0.5px;
+            bottom: 0;
+            display: none;
+            height: 40px;
+            justify-content: space-evenly;
+            left: 0;
+            position: fixed;
+            transform-origin: left bottom;
+            transform: translate(0, 0) scale(1);
+            width: 100%;
+        }
+
+        .keyboardExtension button {
+            background-color: transparent;
+            border: none;
+            border-left: 1px solid rgb(174, 174, 178);
+            border-radius: 0;
+            border-width: 0.5px;
+            font-size: 1rem;
+            height: 100%;
+            width: 25%;
+        }
+
+        .keyboardExtension button:last-of-type {
+            border-right: 1px solid rgb(174, 174, 178);
+            border-width: 0.5px;
+        }
+
+        .textarea {
+            border-radius: 0;
+            border: 1px solid blue;
+            font-size: 1rem;
+            padding: 8px;
+            resize: none;
+            width: 100%;
+        }
+
+        .layoutViewport {
+            height: 100%;
+            position: fixed;
+            visibility: hidden;
+            width: 100%;
+        }
+
+        .debug {
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: monospace;
+            justify-content: center;
+            margin: 0 0 2rem;
+            padding: 8px;
+        }
+
+        .debug li {
+            color: white;
+            list-style: none;
+            margin-right: 1em;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        const layoutViewport = document.getElementById("layoutViewport");
+        const keyboardExtension = document.getElementById("keyboardExtension");
+        const textarea = document.getElementById("textarea");
+        const viewport = window.visualViewport;
+
+        let pendingUpdate = false;
+
+        function update() {
+            // If we're already going to handle an update, return.
+            if (pendingUpdate) {
+                return;
+            }
+
+            pendingUpdate = true;
+
+            // Use requestAnimationFrame so the update happens before next render.
+            requestAnimationFrame(() => {
+                pendingUpdate = false;
+
+                updateDebugInformation();
+
+                const offsetLeft = viewport.offsetLeft;
+                const offsetTop = viewport.height - layoutViewport.getBoundingClientRect().height + viewport.offsetTop;
+                const offsetScale = 1 / viewport.scale;
+
+                keyboardExtension.style.transform = `translate(${offsetLeft}px, ${offsetTop}px) scale(${offsetScale})`;
+            });
+        }
+
+        textarea.addEventListener("focus", () => (keyboardExtension.style.display = "flex"));
+        textarea.addEventListener("blur", () => (keyboardExtension.style.display = "none"));
+        visualViewport.addEventListener("scroll", update);
+        visualViewport.addEventListener("resize", update);
+        addEventListener("scroll", update);
+
+        // =============================================== \\
+        // [IGNORE]: Not important for this demo/exercise. \\
+        // =============================================== \\
+
+        function appendEmoji(e) {
+            e.preventDefault(); // Prevent keyboard from closing.
+            textarea.value = textarea.value + e.target.innerText;
+        }
+
+        function updateDebugInformation() {
+            document
+                .getElementById('offsetLeft')
+                .innerHTML = visualViewport.offsetLeft;
+            document
+                .getElementById('offsetTop')
+                .innerHTML = visualViewport.offsetTop;
+            document
+                .getElementById('pageLeft')
+                .innerHTML = visualViewport.pageLeft;
+            document
+                .getElementById('pageTop')
+                .innerHTML = visualViewport.pageTop;
+            document
+                .getElementById('width')
+                .innerHTML = visualViewport.width;
+            document
+                .getElementById('height')
+                .innerHTML = visualViewport.height;
+            document
+                .getElementById('scale')
+                .innerHTML = visualViewport.scale;
+        }
+
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => button.addEventListener("touchend", appendEmoji));
+    </script>
+{% endblock %}
